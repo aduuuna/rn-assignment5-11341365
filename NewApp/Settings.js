@@ -1,46 +1,92 @@
 import React from "react";
-import { View, StyleSheet, Text } from "react-native";
+import { View, StyleSheet, Text, Switch } from "react-native";
 import { AntDesign } from "@expo/vector-icons";
+import { useTheme } from "./ThemeContext";
+import { lightTheme, darkTheme } from "./themes";
 
 const Settings = ({ navigation }) => {
+  const { isDarkMode, toggleTheme } = useTheme();
+  const theme = isDarkMode ? darkTheme : lightTheme;
   return (
-    <View style={styles.SettingsContainer}>
+    <View
+      style={[
+        styles.SettingsContainer,
+        { backgroundColor: theme.backgroundColor },
+      ]}
+    >
       <View style={styles.main1}>
         <View style={styles.one}>
-          <Text style={styles.Text}>Language</Text>
+          <Text style={[styles.Text, { color: theme.textColor }]}>
+            Language
+          </Text>
           <View style={styles.iconBox}>
-            <AntDesign name="right" size={14} color="black" />
+            <AntDesign
+              name="right"
+              size={14}
+              color="black"
+              style={[styles.text, { color: theme.textColor }]}
+            />
           </View>
         </View>
         <View style={styles.one}>
-          <Text style={styles.Text}>My Profile</Text>
+          <Text style={[styles.Text, { color: theme.textColor }]}>
+            My Profile
+          </Text>
           <View style={styles.iconBox}>
-            <AntDesign name="right" size={14} color="black" />
+            <AntDesign
+              name="right"
+              size={14}
+              color="black"
+              style={[styles.text, { color: theme.textColor }]}
+            />
           </View>
         </View>
         <View style={styles.one}>
-          <Text style={styles.Text}>Contact Us</Text>
+          <Text style={[styles.Text, { color: theme.textColor }]}>
+            Contact Us
+          </Text>
           <View style={styles.iconBox}>
-            <AntDesign name="right" size={14} color="black" />
+            <AntDesign
+              name="right"
+              size={14}
+              color="black"
+              style={[styles.text, { color: theme.textColor }]}
+            />
           </View>
         </View>
         <View style={styles.one}>
-          <Text style={styles.Text}>Change Password</Text>
+          <Text style={[styles.Text, { color: theme.textColor }]}>
+            Change Password
+          </Text>
           <View style={styles.iconBox}>
-            <AntDesign name="right" size={14} color="black" />
+            <AntDesign
+              name="right"
+              size={14}
+              color="black"
+              style={[styles.text, { color: theme.textColor }]}
+            />
           </View>
         </View>
         <View style={styles.one}>
-          <Text style={styles.Text}>Privacy Policy</Text>
+          <Text style={[styles.Text, { color: theme.textColor }]}>
+            Privacy Policy
+          </Text>
           <View style={styles.iconBox}>
-            <AntDesign name="right" size={14} color="black" />
+            <AntDesign
+              name="right"
+              size={14}
+              color="black"
+              style={[styles.text, { color: theme.textColor }]}
+            />
           </View>
         </View>
       </View>
       <View style={styles.main2}>
         <View style={styles.two}>
-          <Text style={styles.Text}>Theme</Text>
-          <View style={styles.themeBox}></View>
+          <Text style={[styles.Text, { color: theme.textColor }]}>Theme</Text>
+          <View style={styles.themeBox}>
+            <Switch value={isDarkMode} onValueChange={toggleTheme} />
+          </View>
         </View>
       </View>
     </View>
@@ -90,8 +136,7 @@ const styles = StyleSheet.create({
   themeBox: {
     width: 100,
     height: 34,
-    borderWidth: 1,
-    borderColor: "black",
+
     marginRight: 5,
     alignItems: "center",
     justifyContent: "center",
@@ -109,6 +154,9 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "space-between",
     flexDirection: "row",
+  },
+  text: {
+    alignItems: "center",
   },
 });
 

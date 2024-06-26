@@ -1,10 +1,14 @@
 import React from "react";
 import { View, Text, StyleSheet } from "react-native";
+import { useTheme } from "./ThemeContext";
+import { lightTheme, darkTheme } from "./themes";
 
 const Statistics = ({ navigation }) => {
+  const { isDarkMode } = useTheme();
+  const theme = isDarkMode ? darkTheme : lightTheme;
   return (
-    <View style={styles.Stats}>
-      <Text>Statistics</Text>
+    <View style={[styles.Stats, { backgroundColor: theme.backgroundColor }]}>
+      <Text style={[styles.text, { color: theme.textColor }]}>Statistics</Text>
     </View>
   );
 };
@@ -18,6 +22,9 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "space-between",
     paddingTop: 60,
+  },
+  text: {
+    fontSize: 18,
   },
 });
 

@@ -1,10 +1,16 @@
 import React from "react";
 import { StatusBar } from "expo-status-bar";
 import { TouchableOpacity, StyleSheet, Text, View, Image } from "react-native";
+import { useTheme } from "./ThemeContext";
+import { lightTheme, darkTheme } from "./themes";
 
 const Home = ({ navigation }) => {
+  const { isDarkMode } = useTheme();
+  const theme = isDarkMode ? darkTheme : lightTheme;
   return (
-    <View style={styles.HomeContainer}>
+    <View
+      style={[styles.HomeContainer, { backgroundColor: theme.backgroundColor }]}
+    >
       <View style={styles.HomeContainer1}>
         <View style={styles.HomeContainer1Mini1}>
           <View style={styles.profile}>
@@ -15,8 +21,12 @@ const Home = ({ navigation }) => {
           </View>
         </View>
         <View style={styles.HomeContainer1Mini2}>
-          <Text style={styles.small}>Welcome back,</Text>
-          <Text style={styles.big}>Eric Atsu</Text>
+          <Text style={[styles.small, { color: theme.textColor }]}>
+            Welcome back,
+          </Text>
+          <Text style={[styles.big, { color: theme.textColor }]}>
+            Eric Atsu
+          </Text>
         </View>
         <View style={styles.HomeContainer1Mini3}>
           <TouchableOpacity>
@@ -43,7 +53,9 @@ const Home = ({ navigation }) => {
 
           <View style={styles.TextBox}>
             <TouchableOpacity>
-              <Text style={styles.TextBoxText}>Sent</Text>
+              <Text style={[styles.TextBoxText, { color: theme.textColor }]}>
+                Sent
+              </Text>
             </TouchableOpacity>
           </View>
         </View>
@@ -58,7 +70,9 @@ const Home = ({ navigation }) => {
           </TouchableOpacity>
           <View style={styles.TextBox}>
             <TouchableOpacity>
-              <Text style={styles.TextBoxText}>Recieve</Text>
+              <Text style={[styles.TextBoxText, { color: theme.textColor }]}>
+                Recieve
+              </Text>
             </TouchableOpacity>
           </View>
         </View>
@@ -73,7 +87,9 @@ const Home = ({ navigation }) => {
           </TouchableOpacity>
           <View style={styles.TextBox}>
             <TouchableOpacity>
-              <Text style={styles.TextBoxText}>Loan</Text>
+              <Text style={[styles.TextBoxText, { color: theme.textColor }]}>
+                Loan
+              </Text>
             </TouchableOpacity>
           </View>
         </View>
@@ -88,14 +104,18 @@ const Home = ({ navigation }) => {
           </TouchableOpacity>
           <View style={styles.TextBox}>
             <TouchableOpacity>
-              <Text style={styles.TextBoxText}>Topup</Text>
+              <Text style={[styles.TextBoxText, { color: theme.textColor }]}>
+                Topup
+              </Text>
             </TouchableOpacity>
           </View>
         </View>
       </View>
       <View style={styles.HomeContainer4}>
         <View style={styles.HomeContainer4Mini1}>
-          <Text style={styles.Transaction}>Transaction</Text>
+          <Text style={[styles.Transaction, { color: theme.textColor }]}>
+            Transaction
+          </Text>
           <Text style={styles.SeeAll}>Sell All</Text>
         </View>
 
@@ -107,11 +127,17 @@ const Home = ({ navigation }) => {
               </View>
             </View>
             <View style={styles.Mini2ATwo}>
-              <Text style={styles.big}>Apple Store</Text>
-              <Text style={styles.small}>Entertainment</Text>
+              <Text style={[styles.big, { color: theme.textColor }]}>
+                Apple Store
+              </Text>
+              <Text style={[styles.small, { color: theme.textColor }]}>
+                Entertainment
+              </Text>
             </View>
             <View style={styles.Mini2AThree}>
-              <Text style={styles.big1}>-$5,99</Text>
+              <Text style={[styles.big1, { color: theme.textColor }]}>
+                -$5,99
+              </Text>
             </View>
           </View>
           <View style={styles.Mini2A}>
@@ -121,11 +147,17 @@ const Home = ({ navigation }) => {
               </View>
             </View>
             <View style={styles.Mini2ATwo}>
-              <Text style={styles.big}>Spotify</Text>
-              <Text style={styles.small}>Music</Text>
+              <Text style={[styles.big, { color: theme.textColor }]}>
+                Spotify
+              </Text>
+              <Text style={[styles.small, { color: theme.textColor }]}>
+                Music
+              </Text>
             </View>
             <View style={styles.Mini2AThree}>
-              <Text style={styles.big1}>-$12,99</Text>
+              <Text style={[styles.big1, { color: theme.textColor }]}>
+                -$12,99
+              </Text>
             </View>
           </View>
           <View style={styles.Mini2A}>
@@ -135,8 +167,12 @@ const Home = ({ navigation }) => {
               </View>
             </View>
             <View style={styles.Mini2ATwo}>
-              <Text style={styles.big}>Money Transfer</Text>
-              <Text style={styles.small}>Transaction</Text>
+              <Text style={[styles.big, { color: theme.textColor }]}>
+                Money Transfer
+              </Text>
+              <Text style={[styles.small, { color: theme.textColor }]}>
+                Transaction
+              </Text>
             </View>
             <View style={styles.Mini2AThree}>
               <Text style={styles.big0}>$3,00</Text>
@@ -149,11 +185,17 @@ const Home = ({ navigation }) => {
               </View>
             </View>
             <View style={styles.Mini2ATwo}>
-              <Text style={styles.big}>Grocery</Text>
-              <Text style={styles.small}>Shoping</Text>
+              <Text style={[styles.big, { color: theme.textColor }]}>
+                Grocery
+              </Text>
+              <Text style={[styles.small, { color: theme.textColor }]}>
+                Shoping
+              </Text>
             </View>
             <View style={styles.Mini2AThree}>
-              <Text style={styles.big1}>-$88</Text>
+              <Text style={[styles.big1, { color: theme.textColor }]}>
+                -$88
+              </Text>
             </View>
           </View>
         </View>
